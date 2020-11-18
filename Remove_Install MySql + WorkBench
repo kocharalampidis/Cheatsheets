@@ -2,7 +2,7 @@
 sudo apt update
 sudo apt install mysql-server
 sudo mysql_secure_installation
-
+sudo find / -iname 'mysql*' -exec rm -rf {} \;
 -------------------------------------------------------------------------------------------------
 
 	-To Remove a Sql package: (mysql)
