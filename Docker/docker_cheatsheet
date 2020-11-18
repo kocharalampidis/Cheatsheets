@@ -1,0 +1,43 @@
+// Docker install
+
+https://docs.docker.com/engine/install/ubuntu/
+
+================================================================================
+
+// docker sudo permissions
+
+sudo groupadd docker
+
+sudo usermod -aG docker $USER
+
+newgrp docker 
+
+docker run hello-world
+
+================================================================================
+
+
+
+## docker hub to download any imgages.
+
+// show downloaded images
+docker images
+
+// show running containers 
+docker ps (-a)
+
+// start/stop/restart containers
+docker <s/s/r> <container_name>
+docker kill <container_name>
+
+
+================================================================================
+
+// Docker remove image
+docker rmi < image Id >
+
+
+================================================================================
+
+// Docker remove container
+docker rm <container_name>
