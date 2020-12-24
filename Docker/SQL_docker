@@ -1,13 +1,12 @@
 // To download the MySQL Community Edition image, run this command:
 
-docker pull mysql/mysql-server:tag
+docker run --name=test-mysql mysql
 
 
 
 // Start a new Docker container for the MySQL Community Server with this command:
 
-docker run --name=mysql1 --restart on-failure -d --env="MYSQL_ROOT_PASSWORD=pass" mysql/mysql-server:tag
-
+docker run --detach --name=test-mysql --restart on-failure -d --env="MYSQL_ROOT_PASSWORD=mypassword" mysql
 
 // To monitor the output from the container:
 
@@ -18,14 +17,17 @@ docker logs mysql1
 docker exec -it mysql1 mysql -u root -p
 
 
-docker stop test-mysql
-docker rm test-mysql
-docker run --detach --name=test-mysql --env="MYSQL_ROOT_PASSWORD=mypassword" mysql
+docker stop mysql1
+docker rm mysql1
 
 
 
 // Retrieve the IP address of that container in order to access it.
 
-docker inspect mysql1
+docker inspect test-mysql
 
+// Connecting to mysql container
+sudo apt-get install mysql-client
 
+// Access the MySQL server
+ mysql -uroot -pmypassword -h 172.17.0.20 -P 3306
