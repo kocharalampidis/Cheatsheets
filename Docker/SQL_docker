@@ -16,3 +16,16 @@ docker logs mysql1
 // Connecting to MySQL Server from within the Container
 
 docker exec -it mysql1 mysql -u root -p
+
+
+docker stop test-mysql
+docker rm test-mysql
+docker run --detach --name=test-mysql --env="MYSQL_ROOT_PASSWORD=mypassword" mysql
+
+
+
+// Retrieve the IP address of that container in order to access it.
+
+docker inspect mysql1
+
+
