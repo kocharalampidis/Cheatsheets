@@ -30,7 +30,8 @@ docker ps (-a)
 docker <s/s/r> <container_name>
 docker kill <container_name>
 
-
+//remove container name
+docker rm <container_name>
 ================================================================================
 
 // Docker remove image

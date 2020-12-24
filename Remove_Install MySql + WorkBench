@@ -1,21 +1,52 @@
 	-To Install Mysql:
 sudo apt update
-sudo apt install mysql-server
-sudo mysql_secure_installation
+sudo apt install mysql-server && sudo mysql_secure_installation
+
 
 -------------------------------------------------------------------------------------------------
 
 	-To Remove a Sql package: (mysql)
 
-sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
-sudo apt-get remove --purge mysql-server mysql-common mysql-server-core-* mysql-client-core-*
-sudo find / -iname 'mysql*' -exec rm -rf {} \;
+sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-* -y &&
+sudo apt-get remove --purge mysql-server mysql-common mysql-server-core-* mysql-client-core-* &&
+sudo find / -iname 'mysql*' -exec rm -rf {} \; &&
+sudo apt-get purge mysql* &&
 
-rm -rf /etc/mysql/ var/lib/mysql
+sudo rm -rf /etc/mysql/ var/lib/mysql &&
 
-sudo apt-get autoremove
+sudo apt-get autoremove &&
 sudo apt-get autoclean
-sudo apt-get purge mysql*
+
+
+
+
+
+
+
+
+
+
+sudo mysql -u root
+USE mysql;
+FLUSH PRIVILEGES;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -------------------------------------------------------------------------------------------------
 
@@ -38,9 +69,9 @@ service mysql restart
 
 $ sudo mysql -u root # I had to use "sudo" since is new installation
 mysql:~ USE mysql;
-CREATE USER 'YOUR_SYSTEM_USER'@'localhost' IDENTIFIED BY '';
+CREATE USER 'nero'@'localhost' IDENTIFIED BY '';
 GRANT ALL PRIVILEGES ON * . * TO 'YOUR_SYSTEM_USER'@'localhost';
-UPDATE user SET plugin='auth_socket' WHERE User='YOUR_SYSTEM_USER';
+UPDATE user SET plugin='auth_socket' WHERE User='nero';
 FLUSH PRIVILEGES;
  exit;
 
@@ -53,9 +84,12 @@ Remember that if you use option #2 you'll have to connect to mysql as your syste
 sudo mysql -u root
 use mysql;
 update user set plugin='mysql_native_password' where User='root';
-update mysql.user set authentication_string=PASSWORD('mysqlpasshere') where
-user='root';
+update mysql.user set authentication_string=PASSWORD('nero') where user='root';
 flush privileges;
 quit
 
 sudo service mysql restart
+
+=======================================================================================================
+
+
