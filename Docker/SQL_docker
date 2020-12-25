@@ -35,5 +35,5 @@ docker inspect test-mysql
 // Connecting to mysql container
 sudo apt-get install mysql-client
 
-// Access the MySQL server and from host
+// Access the MySQL server from host
  mysql -uroot -pmypassword -h127.0.0.1 -P6603
