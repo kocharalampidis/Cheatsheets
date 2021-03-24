@@ -11,20 +11,20 @@ docker run \
 --name=test-mysql \
 --env="MYSQL_ROOT_PASSWORD=mypassword" \
 --publish 6603:3306 \
-mysql:<tag> \
+mysql:5.7 \
 
 
 // To monitor the output from the container:
 
-docker logs mysql1
+docker logs test-mysql
 
 // Connecting to MySQL Server from within the Container
 
-docker exec -it mysql1 mysql -u root -p
+docker exec -it test-mysql mysql -u root -p
 
 
-docker stop mysql1
-docker rm mysql1
+docker stop test-mysql
+docker rm test-mysql
 
 
 
@@ -33,7 +33,7 @@ docker rm mysql1
 docker inspect test-mysql
 
 // Connecting to mysql container
-sudo apt-get install mysql-client
+//sudo apt-get install mysql-client
 
 // Access the MySQL server from host
  mysql -uroot -pmypassword -h127.0.0.1 -P6603
