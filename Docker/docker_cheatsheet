@@ -29,6 +29,10 @@ docker images
 // show running containers 
 docker ps (-a)
 
+// To list all containers, both running and stopped, add –a :
+
+docker ps –a
+
 // start/stop/restart containers
 docker <s/s/r> <container_name>
 docker kill <container_name>
